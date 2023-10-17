@@ -1,20 +1,36 @@
+import QtQuick
+import QtQuick.Window
+import QtMultimedia
 
-  import QtQuick
-  import Superapp
 
-  Window {
-    id: root
-    width: 480
-    height: 480
+import "ui/bottomBar"
+import "ui/upperScreen"
+import "ui/lowerScreen"
+
+
+Window {
+    width: 720
+    height: 1280
+
     visible: true
-    title: qsTr("Qt WS 2022 talk by
-                Lukas Kosinski (Scythe Studio)")
+    title: "Canteen Vending"
 
-    Page {
-      id: page
 
-      anchors.fill: parent
+
+    UpperScreen {
+        id: upperScreen
     }
-  }
+
+    LowerScreen {
+        id: lowerScreen
+        anchors {
+            top: upperScreen.bottom
+        }
+    }
+
+    BottomBar {
+        id: bottomBar
+    }
 
 
+}
